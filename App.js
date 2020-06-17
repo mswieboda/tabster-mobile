@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {
   Button,
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
@@ -13,7 +13,7 @@ import {
 
 function Tabs({ navigation }) {
   return (
-    <View style={styles.body}>
+    <SafeAreaView style={styles.body}>
       <Text style={styles.text}>
         newest tabs
       </Text>
@@ -39,7 +39,7 @@ function Tabs({ navigation }) {
       >
         Metallica - Enter Sandman
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -47,7 +47,7 @@ function Tab({ route, navigation }) {
   const { title, artist } = route.params;
 
   return (
-    <View style={styles.body}>
+    <SafeAreaView style={styles.body}>
       <Text style={styles.text}>
         <Text style={styles.link}>{title}</Text>
         <Text style={styles.text}> by </Text>
@@ -72,7 +72,7 @@ function Tab({ route, navigation }) {
         title="go to tabs"
         onPress={() => navigation.navigate('tabs')}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -80,19 +80,23 @@ const Stack = createStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="tabs"
-        screenOptions={{
-          headerStyle: styles.screenHeader,
-          headerTintColor: colors.bg,
-          headerTitleStyle: styles.screenHeaderTitle,
-        }}
-      >
-        <Stack.Screen name="tabs" component={Tabs}/>
-        <Stack.Screen name="tab" component={Tab}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar barStyle="light-content" backgroundColor={colors.bg} />
+        <Stack.Navigator
+          initialRouteName="tabs"
+          headerMode="none"
+          screenOptions={{
+            headerStyle: styles.screenHeader,
+            headerTintColor: colors.bg,
+            headerTitleStyle: styles.screenHeaderTitle,
+          }}
+        >
+          <Stack.Screen name="tabs" component={Tabs}/>
+          <Stack.Screen name="tab" component={Tab}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
@@ -111,6 +115,7 @@ const styles = StyleSheet.create({
   },
   body: {
     backgroundColor: colors.bg,
+    flex: 1,
   },
   title: {
     fontSize: 33,
