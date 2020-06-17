@@ -16,7 +16,7 @@ function TabList({tabs, renderTabText, renderEmpty, navigation}) {
             title={tab.title}
             style={styles.link}
             onPress={() => {
-              navigation.navigate('Tab', {
+              navigation.navigate('tab', {
                 artist: tab.artist,
                 title: tab.title,
               });

@@ -40,9 +40,6 @@ function Tabs({ navigation }) {
 
   return (
     <View style={styles.body}>
-      <Text style={styles.text}>
-        newest tabs
-      </Text>
       <TabList
         navigation={navigation}
         tabs={tabs}

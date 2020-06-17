@@ -15,15 +15,23 @@ function App() {
       <NavigationContainer>
         <StatusBar barStyle="dark-content" backgroundColor={colors.primary} />
         <Stack.Navigator
-          initialRouteName="Tabs"
+          initialRouteName="tabs"
           screenOptions={{
             headerStyle: styles.screenHeader,
             headerTintColor: colors.bg,
             headerTitleStyle: styles.screenHeaderTitle,
           }}
         >
-          <Stack.Screen name="Tabs" component={Tabs}/>
-          <Stack.Screen name="Tab" component={Tab}/>
+          <Stack.Screen
+            name="tabs"
+            component={Tabs}
+            options={{title: "newest tabs"}}
+          />
+          <Stack.Screen
+            name="tab"
+            component={Tab}
+            options={({ route }) => ({ title: `${route.params.title} by ${route.params.artist}` })}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
