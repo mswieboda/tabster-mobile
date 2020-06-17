@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { styles } from '../styles/common';
 import { getNewest } from '../apis/tabs';
 import TabList from '../components/TabList';
@@ -40,7 +39,7 @@ function Tabs({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.body}>
+    <View style={styles.body}>
       <Text style={styles.text}>
         newest tabs
       </Text>
@@ -49,7 +48,7 @@ function Tabs({ navigation }) {
         tabs={tabs}
         renderTabText={tab => `${tab.artist} - ${tab.title}`}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 

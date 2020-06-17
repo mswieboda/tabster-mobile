@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   Button,
   Text,
+  View,
 } from 'react-native';
 import TextFixedWidth from '../components/TextFixedWidth';
 import { styles } from '../styles/common';
@@ -79,7 +79,7 @@ function Tab({ route, navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.body}>
+    <View style={styles.body}>
       {message &&
         <Text style={styles.text}>{message}</Text>
       }
@@ -93,7 +93,7 @@ function Tab({ route, navigation }) {
           <TextFixedWidth style={styles.text}>{tab}</TextFixedWidth>
         </>
       }
-    </SafeAreaView>
+    </View>
   );
 }
 

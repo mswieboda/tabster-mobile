@@ -13,10 +13,9 @@ function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <StatusBar barStyle="light-content" backgroundColor={colors.bg} />
+        <StatusBar barStyle="dark-content" backgroundColor={colors.primary} />
         <Stack.Navigator
           initialRouteName="Tabs"
-          headerMode="none"
           screenOptions={{
             headerStyle: styles.screenHeader,
             headerTintColor: colors.bg,
