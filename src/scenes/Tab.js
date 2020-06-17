@@ -4,6 +4,7 @@ import {
   Button,
   Text,
 } from 'react-native';
+import TextFixedWidth from '../components/TextFixedWidth';
 import { styles } from '../styles/common';
 import { getTab } from '../apis/tabs';
 
@@ -89,7 +90,7 @@ function Tab({ route, navigation }) {
             <Text style={styles.text}> by </Text>
             <Text style={styles.link}>{artist && artist.name}</Text>
           </Text>
-          <Text style={styles.text}>{tab}</Text>
+          <TextFixedWidth style={styles.text}>{tab}</TextFixedWidth>
         </>
       }
     </SafeAreaView>
