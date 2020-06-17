@@ -81,7 +81,14 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="tabs">
+      <Stack.Navigator
+        initialRouteName="tabs"
+        screenOptions={{
+          headerStyle: styles.screenHeader,
+          headerTintColor: colors.bg,
+          headerTitleStyle: styles.screenHeaderTitle,
+        }}
+      >
         <Stack.Screen name="tabs" component={Tabs}/>
         <Stack.Screen name="tab" component={Tab}/>
       </Stack.Navigator>
@@ -96,6 +103,12 @@ const colors = {
 };
 
 const styles = StyleSheet.create({
+  screenHeader: {
+    backgroundColor: colors.primary,
+  },
+  screenHeaderTitle: {
+    fontWeight: 'bold',
+  },
   body: {
     backgroundColor: colors.bg,
   },
