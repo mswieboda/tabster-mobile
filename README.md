@@ -24,7 +24,7 @@ To run on a physical iOS device, follow [these](https://reactnative.dev/docs/run
 
 ### Android
 
-To run on an Android simulator, first launch the simulator via AVD in Android Studio.
+To run on an Android simulator, first launch the simulator via AVD in Android Studio (or use `emulator -list-avds` and `emulator @AVD_NAME` via command line)
 
 Once the simulator is booted up, run:
 
