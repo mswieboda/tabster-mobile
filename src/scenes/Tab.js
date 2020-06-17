@@ -14,17 +14,7 @@ function Tab({ route, navigation }) {
       <Text style={styles.text}>
         <Text style={styles.link}>{title}</Text>
         <Text style={styles.text}> by </Text>
-        <Text
-          style={styles.link}
-          onPress={() => {
-            navigation.navigate('Tab', {
-              artist: "Metallica",
-              title: "Enter Sandman",
-            });
-          }}
-        >
-          {artist}
-        </Text>
+        <Text style={styles.link}>{artist}</Text>
       </Text>
       <Text style={styles.text}>
         tab: NYI
